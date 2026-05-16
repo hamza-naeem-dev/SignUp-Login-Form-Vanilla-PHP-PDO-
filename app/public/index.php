@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +18,16 @@
             <input type="password" name="pass" placeholder="Password" required>
             <button type="submit">Sign Up</button>
         </form>
+
+        <?php if(isset($_SESSION['success'])): ?>
+
+            <div class="success_msg" style= "display:block; color:green;">
+                <?php
+                    echo $_SESSION['success']; 
+                    unset($_SESSION['success']);
+                ?>
+            </div>
+            <?php endif; ?>
     </div>
 
     <!-- <div class="form_box">

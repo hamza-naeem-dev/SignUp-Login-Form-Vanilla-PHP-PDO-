@@ -1,11 +1,16 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    session_start();
     $Username = $_POST['username'];
     $EmailAddress = $_POST['email'];
     $Password = $_POST['pass'];
 
+    
+
     try{
         require_once 'db_connect.php';
+
+        $_SESSION['success'] = "SignUp Successful";
 
         //Inserting data in to db
 
@@ -33,4 +38,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 else{
         header('Location: ../index.php');
+        die();
     }
